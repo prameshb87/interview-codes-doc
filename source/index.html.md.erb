@@ -1,0 +1,903 @@
+---
+title: Interview Codes python
+
+search: true
+---
+
+# Expedia Questions from Leetcode
+
+## Two Sum
+
+<div class="center-column"></div>
+```py
+"""
+Given an array and integer target find pair of numbers that sum up to the
+target.
+Approach - Consider every element's complement. If an element's complement
+exists then a number has been encountered before such that that number plus the
+current number add up to the target. Add these 2 nums to the result.
+"""
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        n = len(nums)
+        if n == 0:
+            return []
+        complement_map = {}
+        for i in xrange(n):
+            comp = target - nums[i]
+            if comp in complement_map:
+                return [complement_map[comp], i]
+            else:
+                complement_map[nums[i]] = i
+        return []
+```
+
+## Three Sum
+
+<div class="center-column"></div>
+```py
+"""
+Given an array and target, find triplets that add up to sum
+Approach - Use 3 pointers.
+for every element upto (n - 2), consider 2 pointers --> 1 at the next element
+from chosen element and 1 at the end.
+If the sum < target then increment left pointer
+else if sum > target increment right pointer.
+If the sum equals the target add these to the result, increment left pointer
+until a different number than current left is found and decrement right pointer
+until a different right number is found so that more such triplets for the
+given number can be evaluated.
+"""
+class Solution(object):
+    def threeSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        n = len(nums)
+        if n == 0:
+            return []
+        results = []
+        nums.sort()
+        for i in range(n - 2):
+            if nums[i] > 0:
+                break
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+            left, right = i + 1, n - 1
+            while left < right:
+                total = nums[i] + nums[left] + nums[right]
+                if total < 0:
+                    left += 1
+                elif total > 0:
+                    right -= 1
+                else:
+                    results.append([nums[i], nums[left], nums[right]])
+                    while left < right and nums[left] == nums[left + 1]:
+                        left += 1
+                    while left < right and nums[right] == nums[right - 1]:
+                        right -= 1
+                    left += 1
+                    right -= 1
+        return results
+```
+
+## Four Sum
+
+<div class="center-column"></div>
+```py
+"""
+find 4 elements that add up to a target.
+Problem can be broken down into following -
+for every element in array find 3 elements that add up to target minus element.
+"""
+class Solution(object):
+  def threeSum(self, nums, target):
+    results = []
+    nums.sort()
+    for i in range(len(nums) - 2):
+      l = i + 1; r = len(nums) - 1
+      t = target - nums[i]
+      if i == 0 or nums[i] != nums[i-1]:
+        while l < r:
+          s = nums[l] + nums[r]
+          if s == t:
+            results.append([nums[i], nums[l], nums[r]])
+            while l < r and nums[l] == nums[l + 1]:
+                l += 1
+            while l < r and nums[r] == nums[r - 1]:
+                r -= 1
+            l += 1
+            r -= 1
+          elif s < t:
+            l += 1
+          else:
+            r -= 1
+
+    return results
+
+  def fourSum(self, nums, target):
+    results = []
+    nums.sort()
+    for i in range(len(nums) - 3):
+      if i == 0 or nums[i] != nums[i - 1]:
+        threeResult = self.threeSum(nums[i + 1:], target - nums[i])
+        for item in threeResult:
+          results.append([nums[i]] + item)
+    return results
+```
+
+## Valid Parenthesis
+
+<div class="center-column"></div>
+```py
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        is_valid = True
+        if len(s) < 1:
+            return True
+        stk = []
+        for c in s:
+            if c in ['{', '[', '(']:
+                stk.append(c)
+            else:
+                if len(stk) == 0:
+                    is_valid = False
+                else:
+                    top = stk.pop()
+                    if c == '}' and top == '{' or  c == ']' and top == '[' or c == ')' and top == '(':
+                        pass
+                    else:
+                        is_valid = False
+        return len(stk) == 0 and is_valid
+```
+
+## Length of Longest substring with Valid Parenthesis
+
+<div class="center-column"></div>
+```py
+"""
+Given a string of '(' and ')' find length of longest valid substring.
+Approach - use 2 counters and 2 passes.
+Left pass - increment left if '(' else increment right. When left = right
+then a valid substring has been found. Its length is 2 * right. Store it if is
+the maxlength.
+Right pass - increment left if '(' is encountered, increment right otherwise.
+When left = right then a valid substring has been found. Its length is 2 * right
+
+We need 2 passes from both sides because a single pass can miss cases where '('
+is greater than ')' or vice versa
+"""
+class Solution(object):
+    def longestValidParentheses(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        longest = 0
+        n = len(s)
+
+        left = right = maxlength = 0
+        for i in range(n):
+            if s[i] == '(':
+                left += 1
+            else:
+                right += 1
+            if left == right:
+                maxlength = max(maxlength, 2 * right)
+            elif right > left:
+                left = right = 0
+        left = right = 0
+        for i in reversed(range(n)):
+            if s[i] == '(':
+                left += 1
+            else:
+                right += 1
+            if left == right:
+                maxlength = max(maxlength, 2 * right)
+            elif left > right:
+                left = right = 0
+        return maxlength
+```
+
+## Number of Unique BSTs or Catalan Number
+
+<a href="https://www.youtube.com/watch?v=GgP75HAvrlY&feature=emb_logo">Explanation</a>
+<div class="center-column"></div>
+```py
+"""
+n-th Catalan number
+Given n, find the number of unique BSTs that represent sequence [1,2...,n]
+Approach - For the sequence consider placing every element at root and then
+finding out unique possibilities on both of its subtrees.
+with n = 0 there is only 1 unique BST that is the empty tree
+with n = 1 there is only 1 uniques BST with 1 at root.
+with n = 2, place 1 at root (1 unique BST) and then place 2 at root(1 unique BST)
+G(n) is the number of unique BSTs with a sequence of n numbers
+F(i,n) is number of unique BSTs of n numbers but i at root.
+G(i) += G(i-1) * G(n-i)
+"""
+class Solution(object):
+    def numTrees(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        dp = [0] * (n + 1)
+        dp[0] = dp[1] = 1
+        for i in range(2, n + 1):
+            for j in range(1, i + 1):
+                dp[i] += dp[j - 1] * dp[i - j]
+        return dp[n]
+```
+
+## Generate Unique BSTs
+
+<div class="center-column"></div>
+```py
+"""
+For a given integer n generate all possible unique BSTs.
+a BST can be represented in array as follows -
+[a0,a0l,a0r,a0ll,a0lr,a0rl,a0rr]
+a0 -- root
+a0l -- left child of a0
+a0r -- right child of a0
+a0ll -- left child of a0l
+a0lr -- right child of a0l
+a0rl -- left child of a0r
+a0rr -- right child of a0r and so on
+
+Approach - Consider each element to be a root. Then there will be 2 subtrees
+of this tree. The left subtree will comprise of all elements < the element
+chosen whereas the right subtree will comprise of all elements > the chosen
+element. Now each of these left and right subtrees can be generated recursively.
+"""
+class Solution(object):
+    def generateTrees(self, n):
+        """
+        :type n: int
+        :rtype: List[TreeNode]
+        """
+        if n < 1:
+            return []
+        cache = {}
+
+        def genTreesRec(start, end):
+            if start > end:
+                return [None]
+            trees = []
+            if (start,end) in cache:
+                return cache[start,end]
+            for root in range(start, end + 1):
+                for left in genTreesRec(start, root - 1):
+                    for right in genTreesRec(root + 1, end):
+                        node = TreeNode(root)
+                        node.left, node.right = left, right
+                        trees.append(node)
+            cache[start,end] = trees
+            return trees
+
+        return genTreesRec(1,n)
+```
+
+## Decode Message ways
+
+<div class="center-column"></div>
+```py
+"""
+Given a mapping from Alphabets to ints and a string representation of a number
+return the number of ways this string can be decoded into character string.
+eg. '12' may be decoded as 'AB' or 'L'
+
+Approach - if a digit and its next digit total to something > 26 then there is
+only 1 way this digit can be decoded. otherwise there are 2 ways, this digit or
+this plus next digit to char.
+for eg - '27345', there is only 1 way to decode the starting 2 as 27 is out of
+bounds. So total num ways = num ways to decode '7345'. Same with the
+starting 7 and so on. in total there is only 1 way to decode 27345
+but for '26345', the first 2 can be decoded as 'B' but the 26 can also be decoded
+as 'Z' so total num ways = num ways to decode '6345' plus num ways to decode
+'345' so total 2 ways - 'AFCDE' or 'ZCDE'
+"""
+class Solution(object):
+    def numDecodings(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        n = len(s)
+        memo = [-1] * (n + 1)
+
+        def numDecodingsHelper(s, k, memo):
+            if k == 0:
+                return 1
+            idx = len(s) - k
+            if s[idx] == '0':
+                return 0
+            if memo[k] != -1:
+                return memo[k]
+            result = numDecodingsHelper(s, k - 1, memo)
+            if k >=2 and int(s[idx:idx + 2]) <= 26:
+                result += numDecodingsHelper(s, k - 2, memo)
+            memo[k] = result
+            return result
+
+        return numDecodingsHelper(s, n, memo)
+```
+
+## Spiral Matrix 1
+
+<div class="center-column"></div>
+```py
+"""
+SHIFT keeps track of direction.
+Every iteration change matrix cell value to 0 to determine if this cell has
+been included in the result.
+If it has been included or if the matrix boundaries are encountered then
+change the direction.
+"""
+
+class Solution(object):
+    def spiralOrder(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[int]
+        """
+        row_len = len(matrix)
+        if row_len == 0:
+            return []
+        col_len = len(matrix[0])
+        if col_len == 0:
+            return matrix[0]
+        SHIFT = ((0,1),(1,0),(0,-1),(-1,0))
+        direction = x = y = 0
+        result = []
+
+        for _ in range(row_len * col_len):
+            result.append(matrix[x][y])
+            matrix[x][y] = 0
+            next_x, next_y = x + SHIFT[direction][0], y + SHIFT[direction][1]
+            if (next_x not in range(row_len) or
+               next_y not in range(col_len) or
+               matrix[next_x][next_y] == 0):
+                direction = (direction + 1) & 3
+                next_x, next_y = x + SHIFT[direction][0], y + SHIFT[direction][1]
+            x, y = next_x, next_y
+        return result
+```
+
+## Spiral Matrix 2
+
+<div class="center-column"></div>
+```py
+"""
+Given an integer n. Print a spiral matrix representation of the sequence (1, n)
+
+Approach - same as spiralMatrix1. Create an empty matrix of n*n. iteratively
+update each cell in the matrix based on direction conditions.
+"""
+class Solution(object):
+    def generateMatrix(self, n):
+        """
+        :type n: int
+        :rtype: List[List[int]]
+        """
+        if n == 0:
+            return []
+        if n == 1:
+            return [[1]]
+        SHIFT = ((0,1),(1,0),(0,-1),(-1,0))
+        dir = x = y = 0
+        matrix = [[0 for _ in range(n)] for _ in range(n)]
+        for i in range(n * n):
+            matrix[x][y] = i + 1
+            next_x, next_y = x + SHIFT[dir][0], y + SHIFT[dir][1]
+            if next_x not in range(n) or
+                next_y not in range(n) or
+                matrix[next_x][next_y] != 0:
+                dir = (dir + 1) & 3
+                next_x, next_y = x + SHIFT[dir][0], y + SHIFT[dir][1]
+            x, y = next_x, next_y
+        return matrix
+```
+
+## Longest Substring without repeating Characters
+
+<div class="center-column"></div>
+```py
+"""
+eg 'abcabcbb' should return 3
+Approach - use Dynamic Programming.
+create a list of strings containing unique characters in order of encounter.
+if encountered character is in the last string of output array, that means it is
+a repeating character, so we find the last occurrence of this char in the string
+and create a new string with remaining elements after the index of this char
+for eg output contains 'abc' until we encounter the 2nd 'a' in this case, since
+'a' exists in the last string of output, we find its index (which is 0 here),
+then create a new string ('bca') with remaining characters from the string. Keep
+doing this while computing max length until the end of input string.
+For the above eg, final output will be ['abc','bca','cab','abc','cb','b'] and
+max length will be 3
+"""
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        n = len(s)
+        if n == 0:
+            return 0
+        output = ['']
+        max_len = 0
+        for i in range(n):
+            if output[-1] == '' or s[i] not in output[-1]:
+                output[-1] += s[i]
+                m = len(output[-1])
+            else:
+                index = output[-1].rfind(s[i])
+                output.append(output[-1][index+1:] + s[i])
+        for st in output:
+            max_len = max(max_len, len(st))
+        return max_len
+```
+
+## Longest Palindromic Subsequence
+
+<div class="center-column"></div>
+```py
+"""
+eg - 'bbbab' output = 4 as 'bbbb' is the longest palindromic subsequence
+Logic - Use dp starting from the last character
+at every step check if the string from this character to the end of string is a palindrome or not.
+eg progression of dp array -
+[0,0,0,0,1] only palindrome in 'b' is 'b'
+[0,0,0,1,1] palindrome in 'ab' is 'b' or 'a'
+[0,0,1,1,3] palindromes in 'bab' are 'b', 'a' or 'bab'
+[0,1,2,2,3] palindromes in 'bbab' are 'b', 'bb', 'a', 'bbb' or 'bab'
+[1,2,3,3,4] palindromes in 'bbbab' are 'b', 'bb', 'bbb', 'bab', 'bbbb'
+"""
+
+def longestPalindromeSubseq(self, s):
+        if s == s[::-1]:
+            return len(s)
+
+        n = len(s)
+        dp = [0 for j in xrange(n)]
+        dp[n-1] = 1
+
+        for i in xrange(n-1, -1, -1):   # can actually start with n-2...
+            newdp = dp[:]
+            newdp[i] = 1
+            for j in xrange(i+1, n):
+                if s[i] == s[j]:
+                    newdp[j] = 2 + dp[j-1]
+                else:
+                    newdp[j] = max(dp[j], newdp[j-1])
+            dp = newdp
+
+        return dp[n-1]
+```
+
+## Longest Palindromix Substring
+
+<div class="center-column"></div>
+```py
+
+```
+
+## Longest Common Subsequence
+
+<div class="center-column"></div>
+```py
+"""
+Given text1 and text2, return length of longest common subsequence between these
+eg - text1 = 'abcde' text2 = 'ace' answer = 3 as 'ace' is LCS
+Approach - use DP. create a matrix, iteratively add characters from both
+strings into consideration
+if a char in t1 equals a char in t2, increment length of LCS by 1. If the chars
+are not equal, the length will be max of the length of LCS found so far.
+for eg above dp matrix will be
+    a   b   c   d   e
+a   1   1   1   1   1
+c   1   1   2   2   2
+e   1   1   2   2   3
+
+"""
+class Solution(object):
+    def longestCommonSubsequence(self, text1, text2):
+        """
+        :type text1: str
+        :type text2: str
+        :rtype: int
+        """
+        if text1 == '' or text2 == '':
+            return 0
+        dp = [[0 for _ in range(len(text1) + 1)] for _ in range(len(text2) + 1)]
+        for i in range(1, len(text2) + 1):
+            for j in range(1, len(text1) + 1):
+                if text2[i - 1] == text1[j - 1]:
+                    dp[i][j] = dp[i - 1][j - 1] + 1
+                else:
+                    dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - 1], dp[i][j - 1])
+        return dp[len(text2)][len(text1)]
+```
+
+## Check if Binary tree is a BST
+
+<div class="center-column"></div>
+```py
+"""
+Check if a Binary tree is a Binary search tree.
+A BT is a BST if all nodes to left of a node are less than the node
+and all nodes to the right are greater than or equal to the node.
+"""
+class Treenode:
+  def __init__(self,data,left,right):
+    self.data = data
+    self.left = left
+    self.right = right
+
+def check_bst(node,min,max):
+  print(node,min,max)
+  if node is None or node.data is None:
+    return True
+  if (min is not None and node.data <= min) or (max is not None and node.data > max):
+    return False
+  if not check_bst(node.left,min,node.data) or not check_bst(node.right,node.data,max):
+    return False
+  return True
+```
+
+## Inorder traversal without Recursion or Stack
+
+<div class="center-column"></div>
+```py
+"""
+Perform inorder traversal without using recursion or stacks/queues
+inorder = left -> root -> right
+
+Approach -
+if a given node has no left child, print the node and move on to its right
+child. otherwise, check if the
+left child has a right child and find the rightmost child of the left child.
+Make it point to the given node so that it comes after the right most child
+has been printed. This is because for inorder traversal the rightmost child
+of a node's left subtree is the node's predecessor.
+"""
+def in_order(head):
+    list, temp = [], head
+    while temp is not None:
+        if temp.left is None:
+            list.append(temp.val)
+            temp = temp.right
+        else:
+            pre = temp.left
+            while pre.right is not None and pre.right != temp:
+                pre = pre.right
+            if pre.right is None:
+                pre.right = temp
+                temp = temp.left
+            else:
+                pre.right = None
+                list.append(temp.val)
+                temp = temp.right
+```
+
+## Letter combinations of phone number
+
+<div class="center-column"></div>
+```py
+"""
+Given a string containing digits 2-9 inclusive, return all possible letter
+combinations that the number could represent.
+A mapping of digits to numbers is similar to telephone buttons
+eg input - '23'
+output = ['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf']
+"""
+def solution(digits):
+    """
+    solution is to loop over each digit's mapping letters and keep adding to a
+    string. To prevent having to write explicit for loops a recursive
+    approach is used.
+    Iterate over the first digit's mapping string, and call the recursive
+    function on the next digit's mapping string. Recursion will handle
+    further digits. We stop if a string with the same number of digits has been
+    produced and then continue on to the next iteration of the earliest loop.
+    """
+    mapping = [
+        '',
+        '',
+        'abc',
+        'def',
+        'ghi',
+        'jkl',
+        'mno',
+        'pqrs',
+        'tuv',
+        'wxyz'
+    ]
+    result = []
+    index = 0
+    current = ''
+    get_letter_combinations(digits, mapping, current, index, result)
+    return result
+
+def get_letter_combinations(digits, mapping, current, index, result):
+    if index == len(digits): # current string has all possible characters for the given digits combinations
+        result.append(current)
+        return
+    for c in mapping[int(digits[index])]:
+        get_letter_combinations(digits, mapping, current + c, index + 1, result)
+```
+
+## Pascal's Triangle
+
+<div class="center-column"></div>
+```py
+"""
+Given a non-negative number numRows, generate first numRows of Pascal's triangle
+eg -
+Input: 5
+Output:
+[
+     [1],
+    [1,1],
+   [1,2,1],
+  [1,3,3,1],
+ [1,4,6,4,1]
+]
+"""
+class Solution(object):
+    def generate(self, numRows):
+        """
+        :type numRows: int
+        :rtype: List[List[int]]
+        """
+        output = []
+        for i in range(numRows):
+            temp = [1]
+            if i == 0:
+                output.append(temp)
+                continue
+            j = 0
+            while j < len(output[i-1]) - 1:
+                temp.append(output[i-1][j] + output[i-1][j+1])
+                j = j+1
+            temp.append(1)
+            output.append(temp)
+        return output
+```
+
+## Search Rotated Array
+
+<div class="center-column"></div>
+```py
+"""
+Given a sorted array of unique integers, rotated at a random index, search for
+a target and return its index.
+
+Approach - use a modified form of Binary search without having to sort the array
+if the middle element is less than last element then right half of array is
+sorted and rotation must have occurred in the left half. Similarily if first
+element is greater than middle element then right half of array is
+sorted and rotation must have occurred in the left half. Using this knowledge,
+if target is less than middle element, but last element is less than middle
+element and greater than target, it means the rotation occured between mid and
+last and the target lies in the right half (if it exists in the array).
+"""
+class Solution(object):
+    def search(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        n = len(nums)
+        if n == 0:
+            return -1
+
+        start, end = 0, n - 1
+        while start <= end:
+            mid = (start + end) // 2
+            if target == nums[mid]:
+                return mid
+            if nums[mid] < target:
+                if nums[start] <= target and nums[start] > nums[mid]:
+                    end = mid - 1
+                else:
+                    start = mid + 1
+            elif nums[mid] > target:
+                if nums[end] >= target and nums[mid] > nums[end]:
+                    start = mid + 1
+                else:
+                    end = mid - 1
+        return -1
+```
+
+## Search Rotated array 2
+
+<div class="center-column"></div>
+```py
+"""
+search target in sorted and rotated array which may contain duplicates.
+"""
+class Solution(object):
+    def search(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: bool
+        """
+        start = 0
+        end = len(nums)
+        if end == 0:
+            return False
+
+        while start < end:
+            mid = (start + end) // 2
+            if target == nums[mid]:
+                return True
+            if nums[mid] > nums[start]: # right half of nums is sorted
+                if target < nums[mid] and target >= nums[start]: # target in left half of nums
+                    end = mid
+                else: # target in right half of nums
+                    start = mid + 1
+            elif nums[mid] < nums[start]: # right half of nums is sorted
+                if target > nums[mid] and target <= nums[end - 1]: # target in right half of nums
+                    start = mid + 1
+                else: # target in left half of nums
+                    end = mid
+            else: # nums[start] equals nums[mid]
+                start += 1
+        return False
+```
+
+## Valid Permutations for parenthesis pairs
+
+<div class="center-column"></div>
+```py
+"""
+For n pairs of parenthesis (eg - input of 3 implies 3 '(' and 3 ')') print
+all strings that represent valid permutations of the parenthesis.
+Approach - Use recursion, every '(' or ')' may be considered or not considered
+for a permutation. Keep track of remaining left and right parenthesis. As soon
+as remaining '(' becomes greater than remaining ')' then we no longer have a
+valid string so return and continue with next invokation of the recursion.
+"""
+class Solution(object):
+  def printPerms(list, left_remaining, right_remaining, str, index, count):
+    count+=1
+    if left_remaining < 0 or right_remaining < left_remaining:
+      return
+    if left_remaining == 0 and right_remaining == 0:
+      list.append(''.join(str))
+    else:
+      if index == len(str): # in case str is []
+        str.insert(index, '(')
+      else:
+        str[index] = '('
+      printPerms(list, left_remaining - 1, right_remaining, str, index + 1, count)
+      if index == len(str):
+        str.insert(index, ')')
+      else:
+        str[index] = ')'
+      printPerms(list, left_remaining, right_remaining - 1, str, index + 1, count)
+```
+
+## Pairs from 2 arrays that add up to a number closest to target
+
+<div class="center-column"></div>
+```py
+"""
+Given 2 lists find pair(s) of numbers from list1 and list2 which add up closest
+to a target t.
+For eg. l1 = [1,4,7,3] l2 = [2,0,4,8] and t = 11 should return the pairs (7,4),
+(3,8) and (4,8) because their sums are 11 or closest to 11.
+
+Approach -
+to solve this problem consider a matrix of all elements from both lists in
+sorted order.
+Start with the last element on 1st row, this is the sum of l1[0] and l2[len(l2)-1]
+if this sum is less than t - 1 then all elements to the left of this cell are
+less than t - 1 and do not need to be processed. move to the cell below this by incrementing
+i by 1 but keeping j the same. If the sum is greater than t + 1 then all cells below this
+are greater than t + 1 and need not be processed. Move to the left of this cell by
+decrementing j by 1 and keeping i the same. If the sum is t or t - 1, note down the pairs
+and the sum and move to the left of cell as above, if the sum is t + 1, note down the pairs
+and move to cell below this one.
+You should have a list of all pairs that add up to t - 1, t or t + 1. Any of these can be the
+answer.
+
+Run following to test -
+l1, l2 = [1,4,7,3], [2,0,4,8]
+t = 11
+
+s = Solution()
+s.sum_pair(sorted(l1), sorted(l2), t)
+print(repr(s.sum_pair_dict)) # {11: [(3, 8), (7, 4)], 12: [(4, 8)]}
+"""
+class Solution:
+  sum_pair_dict = {}
+
+  def sum_pair(self, l1, l2, t):
+    i, j = 0, len(l2) - 1
+    sum = 0
+    while i != len(l1) and j >=0:
+      sum = l1[i] + l2[j]
+      if sum > t + 1:
+        j -= 1
+        continue
+      if sum < t - 1:
+        i += 1
+        continue
+      if sum not in self.sum_pair_dict:
+        self.sum_pair_dict[sum] = [(l1[i], l2[j])]
+      else:
+        self.sum_pair_dict[sum].append((l1[i], l2[j]))
+      if sum <= t:
+        i += 1
+      else:
+        j -= 1
+```
+
+# AWS Technical Architecture
+
+## Overview
+
+The previous sections described the architecture used for Milestone processing based on the on-prem deployment of Cloudera's CDH5 Hadoop stack within Cerner Ingestion platforms production clusters. The following section shall include the proposed architecture for the entire Process Analyzer processing on Amazon's [Amazon AWS](https://aws.amazon.com/) cloud. This architecture shall use the AWS services and designs that would eventually be fine tuned for scalability, performance and cost optimization above all. In case of any recommendations for improvement based on the material published on this site, feel free to reach out to the Greenhouse - Platforms & Scalability - Process Analyzer team.
+
+As part of the following AWS based architecture or the system design for Process Analyzer, an attempt has been made to encompass the following high level system requirements:
+
+* <a href="#millennium-data-extraction">Incremental Millennium Data load capability</a>
+* <a href="#milestone-data-generation">Milestone dataset generation</a>
+* <a href="#occurence-data-generation">Occurence dataset generation</a>
+* <a href="#compliance-data-generation">Compliance dataset generation</a>
+* <a href="#cross-client-analytics">Cross-client analytics on all generated data</a>
+* <a href="#client-facing-non-millennium">Client facing Non-Millennium public Process Analyzer analysis</a>
+* <a href="#client-vertica-edws">Loading curated data into Client Vertica EDWs for client and analyst consumption</a>
+
+## Millennium data extraction
+
+## Milestone data generation
+
+## Occurence data generation
+
+## Compliance data generation
+
+## Cross-client analytics
+
+## Client facing Non-Millennium
+
+## Client Vertica EDWs
+
+# Technology stack
+
+* [Amazon AWS](https://aws.amazon.com/)
+* [Apache Hadoop](https://hadoop.apache.org/) [(CDH5.14)](https://www.cloudera.com/documentation/enterprise/release-notes/topics/cdh_vd_cdh_package_tarball_514.html#cm_vd_cdh_package_tarball_514)
+* [Apache Spark](https://spark.apache.org/)
+* [Apache Oozie](https://oozie.apache.org/)
+* [Apache Hive](https://hive.apache.org/)
+* [Apache Avro](https://avro.apache.org/)
+* [Apache Parquet](https://parquet.apache.org/)
+* [Apache Kite](http://kitesdk.org/docs/current/)
+* [Apache Zookeeper](https://zookeeper.apache.org/)
+* [Chef](https://learn.chef.io/)
+* [Apache Maven](https://maven.apache.org/)
+* [HP Vertica](https://www.vertica.com/vertica-by-the-hour/?ads_adid=58943524072&ads_cmpid=1536376758&ads_creative=381179100620&ads_matchtype=e&ads_network=g&ads_targetid=kwd-329697672861&ttv=2&utm_campaign=VBTH_E3&utm_medium=paidsearch&utm_source=google&utm_term=vertica&device=c&gclid=EAIaIQobChMIsqSwmOTR5AIVAdvACh3lnAb6EAAYASAAEgJ5SfD_BwE)
+* Java 8 _(For Map-reduce ETLs)_
+* Ruby _(For Chef automation)_
+* Node.js _(For Web-apps)_
+* Shell _(For scripting)_
+* Python _(For [Cerner Advance](https://advance.cerner.com/) & [Apache Spark](https://spark.apache.org/) ETLs within [AWS Glue](https://aws.amazon.com/glue/))_
+* Electric Commander
+* Jenkins

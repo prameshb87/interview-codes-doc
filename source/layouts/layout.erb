@@ -1,0 +1,387 @@
+<%#
+Copyright 2008-2013 Concur Technologies, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may
+not use this file except in compliance with the License. You may obtain
+a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.
+%>
+<% language_tabs = current_page.data.language_tabs || [] %>
+<% page_content = yield %>
+<%
+  if current_page.data.includes
+    current_page.data.includes.each do |include|
+      page_content += partial("includes/#{include}")
+    end
+  end
+%>
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title><%= current_page.data.title || "API Documentation" %></title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <style>
+      <%= Rouge::Themes::MonokaiSublime.render(:scope => '.highlight') %>
+    </style>
+    <%= stylesheet_link_tag :screen, media: :screen %>
+    <%= stylesheet_link_tag :print, media: :print %>
+    <% if current_page.data.search %>
+      <%= javascript_include_tag  "all" %>
+    <% else %>
+      <%= javascript_include_tag  "all_nosearch" %>
+    <% end %>
+  </head>
+
+  <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <%= image_tag('navbar.png') %>
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <% if language_tabs.any? %>
+        <div class="lang-selector">
+          <% language_tabs.each do |lang| %>
+            <% if lang.is_a? Hash %>
+              <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+            <% else %>
+              <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+      <% if language_tabs.any? %>
+        <div class="lang-selector">
+          <% language_tabs.each do |lang| %>
+            <% if lang.is_a? Hash %>
+              <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+            <% else %>
+              <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+      <% if current_page.data.search %>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <% end %>
+      <ul id="toc" class="toc-list-h1">
+        <% toc_data(page_content).each do |h1| %>
+          <li>
+            <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:title] %>"><%= h1[:content] %></a>
+            <% if h1[:children].length > 0 %>
+              <ul class="toc-list-h2">
+                <% h1[:children].each do |h2| %>
+                  <li>
+                    <a href="#<%= h2[:id] %>" class="toc-h2 toc-link" data-title="<%= h2[:title] %>"><%= h2[:content] %></a>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <% if current_page.data.toc_footers %>
+        <ul class="toc-footer">
+          <% current_page.data.toc_footers.each do |footer| %>
+            <li><%= footer %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <%= page_content %>
+      </div>
+      <div class="dark-box">
+        <% if language_tabs.any? %>
+          <div class="lang-selector">
+            <% language_tabs.each do |lang| %>
+              <% if lang.is_a? Hash %>
+                <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+              <% else %>
+                <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- 2019 Roadmap JS code -->
+    <script>
+      google.charts.load('current', {'packages':['gantt']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      const daysToMilliseconds = days => {
+        return days * 24 * 60 * 60 * 1000;
+      }
+
+      function drawChart() {
+
+        const setup2018RoadMap = () => {
+            const data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Task ID'         );
+            data.addColumn('string', 'Task Name'       );
+            data.addColumn('date'  , 'Start Date'      );
+            data.addColumn('date'  , 'End Date'        );
+            data.addColumn('number', 'Duration'        );
+            data.addColumn('number', 'Percent Complete');
+            data.addColumn('string', 'Dependencies'    );
+
+            data.addRows([
+                ['1', '[Initial POC] Millennium Map-reduce ETL', new Date(2018, 9, 1), new Date(2018, 9, 21), null,  100,  null]
+                // ['2', '[Initial POC] Occurrence Map-reduce ETL POC', new Date(2018, 11, 25), new Date(2018, 11, 31), null,  100,  null]
+            ]);
+
+            const options = { height: 120 };
+            const chart   = new google.visualization.Gantt(document.getElementById('2018_roadmap'));
+
+            chart.draw(data, options);
+        };
+
+        const setup2019RoadMap = () => {
+            const data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Task ID'         );
+            data.addColumn('string', 'Task Name'       );
+            data.addColumn('string', 'Resource'        );
+            data.addColumn('date'  , 'Start Date'      );
+            data.addColumn('date'  , 'End Date'        );
+            data.addColumn('number', 'Duration'        );
+            data.addColumn('number', 'Percent Complete');
+            data.addColumn('string', 'Dependencies'    );
+
+            data.addRows([
+                ['rd1'     , 'Top 10 Processes Defined and Prioritized'    , null, new Date(2019, 0, 1) , new Date(2019, 3, 1), null,  100 ,  null],
+                ['rd2'     , 'Top 50 Milestones Defined and Prioritized'    , null, new Date(2019, 0, 1) , new Date(2019, 3, 1), null,  100 ,  null],
+                ['rd3'     , '38 Milestone SQL Definitions Developed'    , null, new Date(2019, 0, 1) , new Date(2019, 3, 1), null,  100 ,  null],
+                ['rd4'     , '1 Client 1 Milestone data in HealtheIntent'    , null, new Date(2019, 0, 1) , new Date(2019, 3, 1), null,  100 ,  null],
+
+                ['rd5'     , 'Milestone SQL to Hive Conversion Automation'    , null, new Date(2019, 3, 1) , new Date(2019, 6, 1), null,  100 ,  null],
+                ['rd6'     , '9 more Milestone SQL Definitions Developed'    , null, new Date(2019, 3, 1) , new Date(2019, 6, 1), null,  100 ,  null],
+
+
+                ['rd7'     , '3 more Milestones created (50 total)'    , null, new Date(2019, 6, 1) , new Date(2019, 9, 1), null,  100 ,  null],
+                ['rd8'     , '1 Client 1 Milestone data in HealtheIntent'    , null, new Date(2019, 6, 1) , new Date(2019, 9, 1), null,  100 ,  null],
+
+                ['rd9'     , 'AHS_FL Milestones sent to HealtheAnalytics'    , null, new Date(2019, 9, 1) , new Date(2019, 11, 31), null,  30 ,  null],
+                ['rd10'     , 'Milestone data into Vertica via HIDUU'    , null, new Date(2019, 9, 1) , new Date(2019, 11, 31), null,  0 ,  null],
+                ['rd11'     , 'Develop 10 new Milestones'    , null, new Date(2019, 9, 1) , new Date(2019, 11, 31), null,  40 ,  null],
+                ['rd12'     , 'SQL to Hive converter updates based on Q3 tests'    , null, new Date(2019, 9, 1) , new Date(2019, 11, 31), null,  0 ,  null],
+                ['rd13'     , 'Milestones KT to Greenhouse Transformation'    , null, new Date(2019, 9, 1) , new Date(2019, 11, 31), null,  10 ,  null],
+
+                ['occ_etl_poc'     , 'Occurence Map-reduce ETL minimal POC'    , null, new Date(2019, 0, 1) , new Date(2019, 3, 1), null,  70 ,  null],
+                ['milo_tech_design', 'Milestone Automation Tech design', null, new Date(2019, 0, 1) , new Date(2019, 3, 1) , null,  100,  null],
+                ['milo-auto'       , 'Milestone Automation Prep Code'  , null, new Date(2019, 0, 1) , new Date(2019, 3, 1) , null,  100,  null],
+                ['fluzie'          , 'Fluent Oozie API'                , null, new Date(2019, 3, 18) , new Date(2019, 5, 1) , null,  100,  null],
+                ['docker'          , 'Docker Hadoop/Vertica Dev. Env.' , null, new Date(2019, 5, 1), new Date(2019, 5, 13), null,  100,  null],
+                ['vert1'           , 'Vertica Load Map-Reduce ETL'     , null, new Date(2019, 5, 15), new Date(2019, 6, 15), null,  100,  'docker'],
+                ['trk_api'         , 'Map-Reduce JobTracker API'       , null, new Date(2019, 5, 15), new Date(2019, 6, 10), null,  100,  'docker'],
+                ['oozie'           , 'Oozie and Avro configuration'    , null, new Date(2019, 6, 15), new Date(2019, 6, 30), null,  100,  'docker'],
+                ['coord'           , 'Oozie Coordinators created'    , null, new Date(2019, 5, 15), new Date(2019, 6, 3), null,  100,  'docker, fluzie'],
+                ['milo_etl'        , 'Milestone Oozie automation'      , null, new Date(2019, 3, 1), new Date(2019, 8, 15), null,  100,  null],
+                ['os_hive'         , 'IHC_UT OrderSign Hive query testing' , null, new Date(2019, 7, 1), new Date(2019, 7, 30), null,  100,  'milo_etl'],
+                ['prod'            , 'IHC_UT OrderSign Milestone data generated', null, new Date(2019, 8, 1), new Date(2019, 8, 30), null,  100,  'os_hive'],
+                ['etoile_vert'     , 'Etoile Vertica Load ETL', null, new Date(2019, 8, 25), new Date(2019, 9, 15), null,  100,  'docker'],
+                ['vert'            , 'HealtheAnalytics Vertica Load Strategy Sync', null, new Date(2019, 8, 16), new Date(2019, 11, 31), null,  60,  'vert1'],
+                ['aws_design'      , 'PA AWS Technical Architecture Design', null, new Date(2019, 9, 25), new Date(2019, 10, 14), null,  85,  null],
+                ['hiduu'           , 'HIDUU + Public EDW API Strategy', null, new Date(2019, 9, 1) , new Date(2019, 11, 31), null,  60,  null],
+                ['aws_tenant'      , 'PA AWS tenant setup', null, new Date(2019, 10, 15), new Date(2019, 11, 15), null,  10,  'aws_design'],
+                ['s3_lts_access'   , 'AWS Millennium data access (LTS)', null, new Date(2019, 11, 8), new Date(2019, 11, 30), null,  0,  'aws_tenant'],
+                ['s3_read'   , 'S3 Millennium Storage reader API prep', null, new Date(2019, 11, 8), new Date(2019, 11, 30), null,  0,  null],
+            ]);
+
+            const options = {
+                height: 1400,
+                gantt: {
+                    criticalPathEnabled: true,
+                    criticalPathStyle: {
+                        stroke     : '#e64a19',
+                        strokeWidth: 5
+                    }
+                }
+            };
+
+            const chart   = new google.visualization.Gantt(document.getElementById('2019_roadmap'));
+
+            google.visualization.events.addListener(chart, 'ready', e => {
+                const allDates = $($('#2019_roadmap').find('g')[1]).find('text');
+
+                allDates.each(function( index ) {
+                    const dateText = $(this).text();
+                    console.log(dateText);
+
+                    switch (dateText) {
+                        case 'Jan' : { this.innerHTML = 'Q1'; break; }
+                        case 'Apr' : { this.innerHTML = 'Q2'; break; }
+                        case 'Jul' : { this.innerHTML = 'Q3'; break; }
+                        case 'Oct' : { this.innerHTML = 'Q4'; break; }
+                        case ' 2019': { break; }
+
+                        default : this.innerHTML = '';
+                    }
+                });
+            });
+
+            chart.draw(data, options);
+        };
+
+        const setup2020RoadMap = () => {
+            const data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Task ID'         );
+            data.addColumn('string', 'Task Name'       );
+            data.addColumn('date'  , 'Start Date'      );
+            data.addColumn('date'  , 'End Date'        );
+            data.addColumn('number', 'Duration'        );
+            data.addColumn('number', 'Percent Complete');
+            data.addColumn('string', 'Dependencies'    );
+
+            data.addRows([
+                ['1', '[AWS] Efficient Millennium data read strategies'  , new Date(2020, 0, 1) , new Date(2020, 3, 1) , null,  0,  null],
+                ['2', '[AWS] Millennium data Map-reduce ETL'             , new Date(2020, 0, 1) , new Date(2020, 3, 1), null,  0,  null],
+                ['3', '[AWS] EMR cluster setup & cost optimization'      , new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['4', '[AWS] S3 tech design for read cost optimization'  , new Date(2020, 0, 1) , new Date(2020, 3, 1), null,  0,  null],
+                ['5', '[AWS] Millennium data extraction automation'      , new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['6', '[AWS] Milestone data generation automation'       , new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['7', '[AWS] Milestone infrastructure automation'        , new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['8', '[AWS] Single client Milestones processed'         , new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['9', '[AWS] Multiple clients Milestones data processed' , new Date(2020, 6, 1) , new Date(2020, 9, 1), null,  0,  null],
+                ['10', '[AWS] Process occurrence ETL development'        , new Date(2020, 6, 1) , new Date(2020, 11, 31), null,  0,  null],
+                ['11', '[AWS] Milestone jobs monitoring dashboard app'   , new Date(2020, 6, 1) , new Date(2020, 9, 1), null,  0,  null],
+                ['12', '[AWS] Occurrence data generated/single client'   , new Date(2020, 9, 1) , new Date(2020, 11, 31), null,  0,  null],
+                ['13', '[AWS] Occurrence data generated/multiple clients', new Date(2020, 9, 1) , new Date(2020, 11, 31), null,  0,  null],
+                ['14', '[AWS] Occurrence infrastructure automation'      , new Date(2020, 9, 1) , new Date(2020, 11, 31), null,  0,  null],
+                ['15', '[AWS] Occurrence jobs monitoring dashboard app'  , new Date(2020, 9, 1) , new Date(2020, 11, 31), null,  0,  null],
+                ['17', '[AWS] Milestone data into HealtheAnalytics'      , new Date(2020, 6, 1) , new Date(2020, 9, 1), null,  0,  null],
+                ['18', '[AWS] Occurrence data into HealtheAnalytics'     , new Date(2020, 9, 1) , new Date(2020, 11, 31), null,  0,  null],
+                ['20', '[AWS] Millennium reference data strategy'        , new Date(2020, 0, 1) , new Date(2020, 3, 1), null,  0,  null],
+                ['21', '[AWS] Millennium LTS data read cost estimate'    , new Date(2020, 0, 1) , new Date(2020, 3, 1), null,  0,  null],
+                ['22', '[AWS] Millennium creation cost estimate'         , new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['23', '[AWS] Occurrence data creation cost estimate'    , new Date(2020, 9, 1) , new Date(2020, 11, 31), null,  0,  null],
+                ['24', '10 new Milestone definitions developed'          , new Date(2020, 0, 1) , new Date(2020, 3, 1) , null,  0,  null],
+                ['25', 'Finish On-prem Milestone automation - 2 clients' , new Date(2020, 0, 1) , new Date(2020, 3, 1) , null,  0,  null],
+                ['26', '10 new Milestone definitions created'            , new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['27', '[Spike] Augmented analytics for Process Analyzer', new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['28', '25 new Milestone definitions developed'          , new Date(2020, 6, 1) , new Date(2020, 9, 1), null,  0,  null],
+                ['29', '25 new Milestone definitions developed'          , new Date(2020, 9, 1) , new Date(2020, 11, 31), null,  0,  null],
+
+            ]);
+
+            const options = {
+                height: 1185,
+                labelMaxWidth : 600,
+                gantt: {
+                    criticalPathEnabled: true,
+                    criticalPathStyle: {
+                        stroke     : '#e64a19',
+                        strokeWidth: 5
+                    }
+                }
+            };
+
+            const chart   = new google.visualization.Gantt(document.getElementById('2020_roadmap'));
+
+            google.visualization.events.addListener(chart, 'ready', e => {
+                const allDates = $($('#2020_roadmap').find('g')[1]).find('text');
+
+                allDates.each(function( index ) {
+                    const dateText = $(this).text();
+                    console.log(dateText);
+
+                    switch (dateText) {
+                        case 'Jan' : { this.innerHTML = 'Q1'; break; }
+                        case 'Apr' : { this.innerHTML = 'Q2'; break; }
+                        case 'Jul' : { this.innerHTML = 'Q3'; break; }
+                        case 'Oct' : { this.innerHTML = 'Q4'; break; }
+                        case ' 2020': { break; }
+
+                        default : this.innerHTML = '';
+                    }
+                });
+            });
+
+            chart.draw(data, options);
+        };
+
+        const setup2021RoadMap = () => {
+            const data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Task ID'         );
+            data.addColumn('string', 'Task Name'       );
+            data.addColumn('date'  , 'Start Date'      );
+            data.addColumn('date'  , 'End Date'        );
+            data.addColumn('number', 'Duration'        );
+            data.addColumn('number', 'Percent Complete');
+            data.addColumn('string', 'Dependencies'    );
+
+            data.addRows([
+                ['1', '[AWS] Client facing PA web-app', new Date(2021, 3, 1), new Date(2021, 9, 1) , null,  0,  null],
+                ['2', '[AWS] Client facing Non-Millennium PA app', new Date(2021, 6, 1) , new Date(2021, 11, 31) , null,  0,  null],
+                ['3', '[AWS] Near real-time capabilities', new Date(2021, 6, 1) , new Date(2021, 11, 31) , null,  0,  null],
+                ['4', '[AWS] Cross-client Analytics Map-reduce ETLs', new Date(2021, 3, 1) , new Date(2021, 9, 1) , null,  0,  null],
+                ['5', '[AWS] Occurrence definition manager web-app', new Date(2021, 0, 1) , new Date(2021, 3, 1) , null,  0,  null],
+                ['6', '[AWS] Compliance analytics development', new Date(2021, 9, 1) , new Date(2021, 11, 31), null,  0,  null],
+                ['7', '[AWS] BI/Analytics Ecosystem creation'          , new Date(2021, 9, 1) , new Date(2021, 11, 31), null,  0,  null],
+                ['8', '[AWS] Machine Learning Ecosystem creation'      , new Date(2021, 9, 1) , new Date(2021, 11, 31), null,  0,  null],
+            ]);
+
+            const options = {
+                height: 385,
+                gantt: {
+                    criticalPathEnabled: true,
+                    criticalPathStyle: {
+                        stroke     : '#e64a19',
+                        strokeWidth: 5
+                    }
+                }
+            };
+
+            const chart = new google.visualization.Gantt(document.getElementById('2021_roadmap'));
+
+            google.visualization.events.addListener(chart, 'ready', e => {
+                const allDates = $($('#2021_roadmap').find('g')[1]).find('text');
+
+                allDates.each(function( index ) {
+                    const dateText = $(this).text();
+                    console.log(dateText);
+
+                    switch (dateText) {
+                        case 'Jan'  : { this.innerHTML = 'Future development'; break; }
+                        case ' 2021': { break; }
+
+                        default : this.innerHTML = '';
+                    }
+                });
+            });
+
+            chart.draw(data, options);
+        };
+
+        // setup2018RoadMap();
+        setup2019RoadMap();
+        setup2020RoadMap();
+        setup2021RoadMap();
+      }
+    </script>
+
+  </body>
+</html>
