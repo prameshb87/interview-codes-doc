@@ -1,0 +1,1383 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Interview Codes python</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen-4ad1d760.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-bccf8c07.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-c5541673.js"></script>
+  </head>
+
+  <body class="index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#expedia-questions-from-leetcode" class="toc-h1 toc-link" data-title="Expedia Questions from Leetcode">Expedia Questions from Leetcode</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#two-sum" class="toc-h2 toc-link" data-title="Two Sum">Two Sum</a>
+                  </li>
+                  <li>
+                    <a href="#three-sum" class="toc-h2 toc-link" data-title="Three Sum">Three Sum</a>
+                  </li>
+                  <li>
+                    <a href="#four-sum" class="toc-h2 toc-link" data-title="Four Sum">Four Sum</a>
+                  </li>
+                  <li>
+                    <a href="#valid-parenthesis" class="toc-h2 toc-link" data-title="Valid Parenthesis">Valid Parenthesis</a>
+                  </li>
+                  <li>
+                    <a href="#length-of-longest-substring-with-valid-parenthesis" class="toc-h2 toc-link" data-title="Length of Longest substring with Valid Parenthesis">Length of Longest substring with Valid Parenthesis</a>
+                  </li>
+                  <li>
+                    <a href="#number-of-unique-bsts-or-catalan-number" class="toc-h2 toc-link" data-title="Number of Unique BSTs or Catalan Number">Number of Unique BSTs or Catalan Number</a>
+                  </li>
+                  <li>
+                    <a href="#generate-unique-bsts" class="toc-h2 toc-link" data-title="Generate Unique BSTs">Generate Unique BSTs</a>
+                  </li>
+                  <li>
+                    <a href="#decode-message-ways" class="toc-h2 toc-link" data-title="Decode Message ways">Decode Message ways</a>
+                  </li>
+                  <li>
+                    <a href="#spiral-matrix-1" class="toc-h2 toc-link" data-title="Spiral Matrix 1">Spiral Matrix 1</a>
+                  </li>
+                  <li>
+                    <a href="#spiral-matrix-2" class="toc-h2 toc-link" data-title="Spiral Matrix 2">Spiral Matrix 2</a>
+                  </li>
+                  <li>
+                    <a href="#longest-substring-without-repeating-characters" class="toc-h2 toc-link" data-title="Longest Substring without repeating Characters">Longest Substring without repeating Characters</a>
+                  </li>
+                  <li>
+                    <a href="#longest-palindromic-subsequence" class="toc-h2 toc-link" data-title="Longest Palindromic Subsequence">Longest Palindromic Subsequence</a>
+                  </li>
+                  <li>
+                    <a href="#longest-palindromix-substring" class="toc-h2 toc-link" data-title="Longest Palindromix Substring">Longest Palindromix Substring</a>
+                  </li>
+                  <li>
+                    <a href="#longest-common-subsequence" class="toc-h2 toc-link" data-title="Longest Common Subsequence">Longest Common Subsequence</a>
+                  </li>
+                  <li>
+                    <a href="#check-if-binary-tree-is-a-bst" class="toc-h2 toc-link" data-title="Check if Binary tree is a BST">Check if Binary tree is a BST</a>
+                  </li>
+                  <li>
+                    <a href="#inorder-traversal-without-recursion-or-stack" class="toc-h2 toc-link" data-title="Inorder traversal without Recursion or Stack">Inorder traversal without Recursion or Stack</a>
+                  </li>
+                  <li>
+                    <a href="#letter-combinations-of-phone-number" class="toc-h2 toc-link" data-title="Letter combinations of phone number">Letter combinations of phone number</a>
+                  </li>
+                  <li>
+                    <a href="#pascal-39-s-triangle" class="toc-h2 toc-link" data-title="Pascal's Triangle">Pascal's Triangle</a>
+                  </li>
+                  <li>
+                    <a href="#search-rotated-array" class="toc-h2 toc-link" data-title="Search Rotated Array">Search Rotated Array</a>
+                  </li>
+                  <li>
+                    <a href="#search-rotated-array-2" class="toc-h2 toc-link" data-title="Search Rotated array 2">Search Rotated array 2</a>
+                  </li>
+                  <li>
+                    <a href="#valid-permutations-for-parenthesis-pairs" class="toc-h2 toc-link" data-title="Valid Permutations for parenthesis pairs">Valid Permutations for parenthesis pairs</a>
+                  </li>
+                  <li>
+                    <a href="#pairs-from-2-arrays-that-add-up-to-a-number-closest-to-target" class="toc-h2 toc-link" data-title="Pairs from 2 arrays that add up to a number closest to target">Pairs from 2 arrays that add up to a number closest to target</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#aws-technical-architecture" class="toc-h1 toc-link" data-title="AWS Technical Architecture">AWS Technical Architecture</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
+                  </li>
+                  <li>
+                    <a href="#millennium-data-extraction" class="toc-h2 toc-link" data-title="Millennium data extraction">Millennium data extraction</a>
+                  </li>
+                  <li>
+                    <a href="#milestone-data-generation" class="toc-h2 toc-link" data-title="Milestone data generation">Milestone data generation</a>
+                  </li>
+                  <li>
+                    <a href="#occurence-data-generation" class="toc-h2 toc-link" data-title="Occurence data generation">Occurence data generation</a>
+                  </li>
+                  <li>
+                    <a href="#compliance-data-generation" class="toc-h2 toc-link" data-title="Compliance data generation">Compliance data generation</a>
+                  </li>
+                  <li>
+                    <a href="#cross-client-analytics" class="toc-h2 toc-link" data-title="Cross-client analytics">Cross-client analytics</a>
+                  </li>
+                  <li>
+                    <a href="#client-facing-non-millennium" class="toc-h2 toc-link" data-title="Client facing Non-Millennium">Client facing Non-Millennium</a>
+                  </li>
+                  <li>
+                    <a href="#client-vertica-edws" class="toc-h2 toc-link" data-title="Client Vertica EDWs">Client Vertica EDWs</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#technology-stack" class="toc-h1 toc-link" data-title="Technology stack">Technology stack</a>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='expedia-questions-from-leetcode'>Expedia Questions from Leetcode</h1><h2 id='two-sum'>Two Sum</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+Given an array and integer target find pair of numbers that sum up to the
+target.
+Approach - Consider every element's complement. If an element's complement
+exists then a number has been encountered before such that that number plus the
+current number add up to the target. Add these 2 nums to the result.
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">twoSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="s">"""
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="n">complement_map</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">comp</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">complement_map</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="n">complement_map</span><span class="p">[</span><span class="n">comp</span><span class="p">],</span> <span class="n">i</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">complement_map</span><span class="p">[</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="k">return</span> <span class="p">[]</span>
+</code></pre><h2 id='three-sum'>Three Sum</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+Given an array and target, find triplets that add up to sum
+Approach - Use 3 pointers.
+for every element upto (n - 2), consider 2 pointers --&gt; 1 at the next element
+from chosen element and 1 at the end.
+If the sum &lt; target then increment left pointer
+else if sum &gt; target increment right pointer.
+If the sum equals the target add these to the result, increment left pointer
+until a different number than current left is found and decrement right pointer
+until a different right number is found so that more such triplets for the
+given number can be evaluated.
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">threeSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+        <span class="s">"""
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="k">continue</span>
+            <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+                <span class="n">total</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">total</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]])</span>
+                    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+                        <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                        <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
+                    <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">results</span>
+</code></pre><h2 id='four-sum'>Four Sum</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+find 4 elements that add up to a target.
+Problem can be broken down into following -
+for every element in array find 3 elements that add up to target minus element.
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">threeSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">):</span>
+      <span class="n">l</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+      <span class="n">t</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+      <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">while</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">:</span>
+          <span class="n">s</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
+          <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="n">t</span><span class="p">:</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">]])</span>
+            <span class="k">while</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="n">l</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">while</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">r</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="n">r</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="n">l</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">r</span> <span class="o">-=</span> <span class="mi">1</span>
+          <span class="k">elif</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">+=</span> <span class="mi">1</span>
+          <span class="k">else</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">results</span>
+
+  <span class="k">def</span> <span class="nf">fourSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+        <span class="n">threeResult</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">threeSum</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">threeResult</span><span class="p">:</span>
+          <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+</span> <span class="n">item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre><h2 id='valid-parenthesis'>Valid Parenthesis</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">isValid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="s">"""
+        :type s: str
+        :rtype: bool
+        """</span>
+        <span class="n">is_valid</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="n">stk</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s">'{'</span><span class="p">,</span> <span class="s">'['</span><span class="p">,</span> <span class="s">'('</span><span class="p">]:</span>
+                <span class="n">stk</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stk</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">is_valid</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">top</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="s">'}'</span> <span class="ow">and</span> <span class="n">top</span> <span class="o">==</span> <span class="s">'{'</span> <span class="ow">or</span>  <span class="n">c</span> <span class="o">==</span> <span class="s">']'</span> <span class="ow">and</span> <span class="n">top</span> <span class="o">==</span> <span class="s">'['</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">==</span> <span class="s">')'</span> <span class="ow">and</span> <span class="n">top</span> <span class="o">==</span> <span class="s">'('</span><span class="p">:</span>
+                        <span class="k">pass</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">is_valid</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">stk</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">is_valid</span>
+</code></pre><h2 id='length-of-longest-substring-with-valid-parenthesis'>Length of Longest substring with Valid Parenthesis</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+Given a string of '(' and ')' find length of longest valid substring.
+Approach - use 2 counters and 2 passes.
+Left pass - increment left if '(' else increment right. When left = right
+then a valid substring has been found. Its length is 2 * right. Store it if is
+the maxlength.
+Right pass - increment left if '(' is encountered, increment right otherwise.
+When left = right then a valid substring has been found. Its length is 2 * right
+
+We need 2 passes from both sides because a single pass can miss cases where '('
+is greater than ')' or vice versa
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">longestValidParentheses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="s">"""
+        :type s: str
+        :rtype: int
+        """</span>
+        <span class="n">longest</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+        <span class="n">left</span> <span class="o">=</span> <span class="n">right</span> <span class="o">=</span> <span class="n">maxlength</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s">'('</span><span class="p">:</span>
+                <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">right</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">left</span> <span class="o">==</span> <span class="n">right</span><span class="p">:</span>
+                <span class="n">maxlength</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">maxlength</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">right</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">right</span> <span class="o">&gt;</span> <span class="n">left</span><span class="p">:</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s">'('</span><span class="p">:</span>
+                <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">right</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">left</span> <span class="o">==</span> <span class="n">right</span><span class="p">:</span>
+                <span class="n">maxlength</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">maxlength</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">right</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">left</span> <span class="o">&gt;</span> <span class="n">right</span><span class="p">:</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">maxlength</span>
+</code></pre><h2 id='number-of-unique-bsts-or-catalan-number'>Number of Unique BSTs or Catalan Number</h2><h3 id='explanation'><a href="https://www.youtube.com/watch?v=GgP75HAvrlY&feature=emb_logo">Explanation</a></h3>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+n-th Catalan number
+Given n, find the number of unique BSTs that represent sequence [1,2...,n]
+Approach - For the sequence consider placing every element at root and then
+finding out unique possibilities on both of its subtrees.
+with n = 0 there is only 1 unique BST that is the empty tree
+with n = 1 there is only 1 uniques BST with 1 at root.
+with n = 2, place 1 at root (1 unique BST) and then place 2 at root(1 unique BST)
+G(n) is the number of unique BSTs with a sequence of n numbers
+F(i,n) is number of unique BSTs of n numbers but i at root.
+G(i) += G(i-1) * G(n-i)
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">numTrees</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="s">"""
+        :type n: int
+        :rtype: int
+        """</span>
+        <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">j</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+</code></pre><h2 id='generate-unique-bsts'>Generate Unique BSTs</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+For a given integer n generate all possible unique BSTs.
+a BST can be represented in array as follows -
+[a0,a0l,a0r,a0ll,a0lr,a0rl,a0rr]
+a0 -- root
+a0l -- left child of a0
+a0r -- right child of a0
+a0ll -- left child of a0l
+a0lr -- right child of a0l
+a0rl -- left child of a0r
+a0rr -- right child of a0r and so on
+
+Approach - Consider each element to be a root. Then there will be 2 subtrees
+of this tree. The left subtree will comprise of all elements &lt; the element
+chosen whereas the right subtree will comprise of all elements &gt; the chosen
+element. Now each of these left and right subtrees can be generated recursively.
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">generateTrees</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="s">"""
+        :type n: int
+        :rtype: List[TreeNode]
+        """</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">def</span> <span class="nf">genTreesRec</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span>
+            <span class="n">trees</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">)</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">root</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">left</span> <span class="ow">in</span> <span class="n">genTreesRec</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">root</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">right</span> <span class="ow">in</span> <span class="n">genTreesRec</span><span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+                        <span class="n">node</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+                        <span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span>
+                        <span class="n">trees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+            <span class="n">cache</span><span class="p">[</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">trees</span>
+            <span class="k">return</span> <span class="n">trees</span>
+
+        <span class="k">return</span> <span class="n">genTreesRec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+</code></pre><h2 id='decode-message-ways'>Decode Message ways</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+Given a mapping from Alphabets to ints and a string representation of a number
+return the number of ways this string can be decoded into character string.
+eg. '12' may be decoded as 'AB' or 'L'
+
+Approach - if a digit and its next digit total to something &gt; 26 then there is
+only 1 way this digit can be decoded. otherwise there are 2 ways, this digit or
+this plus next digit to char.
+for eg - '27345', there is only 1 way to decode the starting 2 as 27 is out of
+bounds. So total num ways = num ways to decode '7345'. Same with the
+starting 7 and so on. in total there is only 1 way to decode 27345
+but for '26345', the first 2 can be decoded as 'B' but the 26 can also be decoded
+as 'Z' so total num ways = num ways to decode '6345' plus num ways to decode
+'345' so total 2 ways - 'AFCDE' or 'ZCDE'
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">numDecodings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="s">"""
+        :type s: str
+        :rtype: int
+        """</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">memo</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">numDecodingsHelper</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">memo</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">1</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span>
+            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">==</span> <span class="s">'0'</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">memo</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">numDecodingsHelper</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;=</span><span class="mi">2</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">idx</span><span class="p">:</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">2</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">26</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="n">numDecodingsHelper</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
+            <span class="n">memo</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+        <span class="k">return</span> <span class="n">numDecodingsHelper</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
+</code></pre><h2 id='spiral-matrix-1'>Spiral Matrix 1</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+SHIFT keeps track of direction.
+Every iteration change matrix cell value to 0 to determine if this cell has
+been included in the result.
+If it has been included or if the matrix boundaries are encountered then
+change the direction.
+"""</span>
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">spiralOrder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrix</span><span class="p">):</span>
+        <span class="s">"""
+        :type matrix: List[List[int]]
+        :rtype: List[int]
+        """</span>
+        <span class="n">row_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">row_len</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="n">col_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">col_len</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">SHIFT</span> <span class="o">=</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">direction</span> <span class="o">=</span> <span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">row_len</span> <span class="o">*</span> <span class="n">col_len</span><span class="p">):</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">])</span>
+            <span class="n">matrix</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">next_x</span><span class="p">,</span> <span class="n">next_y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">SHIFT</span><span class="p">[</span><span class="n">direction</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span> <span class="o">+</span> <span class="n">SHIFT</span><span class="p">[</span><span class="n">direction</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">next_x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">row_len</span><span class="p">)</span> <span class="ow">or</span>
+               <span class="n">next_y</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">col_len</span><span class="p">)</span> <span class="ow">or</span>
+               <span class="n">matrix</span><span class="p">[</span><span class="n">next_x</span><span class="p">][</span><span class="n">next_y</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">direction</span> <span class="o">=</span> <span class="p">(</span><span class="n">direction</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">3</span>
+                <span class="n">next_x</span><span class="p">,</span> <span class="n">next_y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">SHIFT</span><span class="p">[</span><span class="n">direction</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span> <span class="o">+</span> <span class="n">SHIFT</span><span class="p">[</span><span class="n">direction</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">next_x</span><span class="p">,</span> <span class="n">next_y</span>
+        <span class="k">return</span> <span class="n">result</span>
+</code></pre><h2 id='spiral-matrix-2'>Spiral Matrix 2</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+Given an integer n. Print a spiral matrix representation of the sequence (1, n)
+
+Approach - same as spiralMatrix1. Create an empty matrix of n*n. iteratively
+update each cell in the matrix based on direction conditions.
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">generateMatrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="s">"""
+        :type n: int
+        :rtype: List[List[int]]
+        """</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="n">SHIFT</span> <span class="o">=</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="nb">dir</span> <span class="o">=</span> <span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">n</span><span class="p">):</span>
+            <span class="n">matrix</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">next_x</span><span class="p">,</span> <span class="n">next_y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">SHIFT</span><span class="p">[</span><span class="nb">dir</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span> <span class="o">+</span> <span class="n">SHIFT</span><span class="p">[</span><span class="nb">dir</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">next_x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="ow">or</span>
+                <span class="n">next_y</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="ow">or</span>
+                <span class="n">matrix</span><span class="p">[</span><span class="n">next_x</span><span class="p">][</span><span class="n">next_y</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">dir</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dir</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">3</span>
+                <span class="n">next_x</span><span class="p">,</span> <span class="n">next_y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">SHIFT</span><span class="p">[</span><span class="nb">dir</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span> <span class="o">+</span> <span class="n">SHIFT</span><span class="p">[</span><span class="nb">dir</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">next_x</span><span class="p">,</span> <span class="n">next_y</span>
+        <span class="k">return</span> <span class="n">matrix</span>
+</code></pre><h2 id='longest-substring-without-repeating-characters'>Longest Substring without repeating Characters</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+eg 'abcabcbb' should return 3
+Approach - use Dynamic Programming.
+create a list of strings containing unique characters in order of encounter.
+if encountered character is in the last string of output array, that means it is
+a repeating character, so we find the last occurrence of this char in the string
+and create a new string with remaining elements after the index of this char
+for eg output contains 'abc' until we encounter the 2nd 'a' in this case, since
+'a' exists in the last string of output, we find its index (which is 0 here),
+then create a new string ('bca') with remaining characters from the string. Keep
+doing this while computing max length until the end of input string.
+For the above eg, final output will be ['abc','bca','cab','abc','cb','b'] and
+max length will be 3
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">lengthOfLongestSubstring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="s">"""
+        :type s: str
+        :rtype: int
+        """</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="s">''</span><span class="p">]</span>
+        <span class="n">max_len</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">''</span> <span class="ow">or</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">st</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+            <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_len</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">st</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">max_len</span>
+</code></pre><h2 id='longest-palindromic-subsequence'>Longest Palindromic Subsequence</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+eg - 'bbbab' output = 4 as 'bbbb' is the longest palindromic subsequence
+Logic - Use dp starting from the last character
+at every step check if the string from this character to the end of string is a palindrome or not.
+eg progression of dp array -
+[0,0,0,0,1] only palindrome in 'b' is 'b'
+[0,0,0,1,1] palindrome in 'ab' is 'b' or 'a'
+[0,0,1,1,3] palindromes in 'bab' are 'b', 'a' or 'bab'
+[0,1,2,2,3] palindromes in 'bbab' are 'b', 'bb', 'a', 'bbb' or 'bab'
+[1,2,3,3,4] palindromes in 'bbbab' are 'b', 'bb', 'bbb', 'bab', 'bbbb'
+"""</span>
+
+<span class="k">def</span> <span class="nf">longestPalindromeSubseq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>   <span class="c"># can actually start with n-2...</span>
+            <span class="n">newdp</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[:]</span>
+            <span class="n">newdp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                    <span class="n">newdp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">newdp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">newdp</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">dp</span> <span class="o">=</span> <span class="n">newdp</span>
+
+        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre><h2 id='longest-palindromix-substring'>Longest Palindromix Substring</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code>
+</code></pre><h2 id='longest-common-subsequence'>Longest Common Subsequence</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+Given text1 and text2, return length of longest common subsequence between these
+eg - text1 = 'abcde' text2 = 'ace' answer = 3 as 'ace' is LCS
+Approach - use DP. create a matrix, iteratively add characters from both
+strings into consideration
+if a char in t1 equals a char in t2, increment length of LCS by 1. If the chars
+are not equal, the length will be max of the length of LCS found so far.
+for eg above dp matrix will be
+    a   b   c   d   e
+a   1   1   1   1   1
+c   1   1   2   2   2
+e   1   1   2   2   3
+
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">longestCommonSubsequence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text1</span><span class="p">,</span> <span class="n">text2</span><span class="p">):</span>
+        <span class="s">"""
+        :type text1: str
+        :type text2: str
+        :rtype: int
+        """</span>
+        <span class="k">if</span> <span class="n">text1</span> <span class="o">==</span> <span class="s">''</span> <span class="ow">or</span> <span class="n">text2</span> <span class="o">==</span> <span class="s">''</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">text2</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">text1</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">text2</span><span class="p">)][</span><span class="nb">len</span><span class="p">(</span><span class="n">text1</span><span class="p">)]</span>
+</code></pre><h2 id='check-if-binary-tree-is-a-bst'>Check if Binary tree is a BST</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+Check if a Binary tree is a Binary search tree.
+A BT is a BST if all nodes to left of a node are less than the node
+and all nodes to the right are greater than or equal to the node.
+"""</span>
+<span class="k">class</span> <span class="nc">Treenode</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="n">left</span><span class="p">,</span><span class="n">right</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span>
+
+<span class="k">def</span> <span class="nf">check_bst</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="nb">min</span><span class="p">,</span><span class="nb">max</span><span class="p">):</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="nb">min</span><span class="p">,</span><span class="nb">max</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">node</span><span class="o">.</span><span class="n">data</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">return</span> <span class="bp">True</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">node</span><span class="o">.</span><span class="n">data</span> <span class="o">&lt;=</span> <span class="nb">min</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">max</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">node</span><span class="o">.</span><span class="n">data</span> <span class="o">&gt;</span> <span class="nb">max</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">False</span>
+  <span class="k">if</span> <span class="ow">not</span> <span class="n">check_bst</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span><span class="nb">min</span><span class="p">,</span><span class="n">node</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">check_bst</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span><span class="n">node</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="nb">max</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">False</span>
+  <span class="k">return</span> <span class="bp">True</span>
+</code></pre><h2 id='inorder-traversal-without-recursion-or-stack'>Inorder traversal without Recursion or Stack</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+Perform inorder traversal without using recursion or stacks/queues
+inorder = left -&gt; root -&gt; right
+
+Approach -
+if a given node has no left child, print the node and move on to its right
+child. otherwise, check if the
+left child has a right child and find the rightmost child of the left child.
+Make it point to the given node so that it comes after the right most child
+has been printed. This is because for inorder traversal the rightmost child
+of a node's left subtree is the node's predecessor.
+"""</span>
+<span class="k">def</span> <span class="nf">in_order</span><span class="p">(</span><span class="n">head</span><span class="p">):</span>
+    <span class="nb">list</span><span class="p">,</span> <span class="n">temp</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">head</span>
+    <span class="k">while</span> <span class="n">temp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">temp</span><span class="o">.</span><span class="n">left</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">right</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pre</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">left</span>
+            <span class="k">while</span> <span class="n">pre</span><span class="o">.</span><span class="n">right</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">pre</span><span class="o">.</span><span class="n">right</span> <span class="o">!=</span> <span class="n">temp</span><span class="p">:</span>
+                <span class="n">pre</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="n">right</span>
+            <span class="k">if</span> <span class="n">pre</span><span class="o">.</span><span class="n">right</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">pre</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">temp</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">left</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pre</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">None</span>
+                <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">right</span>
+</code></pre><h2 id='letter-combinations-of-phone-number'>Letter combinations of phone number</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+Given a string containing digits 2-9 inclusive, return all possible letter
+combinations that the number could represent.
+A mapping of digits to numbers is similar to telephone buttons
+eg input - '23'
+output = ['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf']
+"""</span>
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">digits</span><span class="p">):</span>
+    <span class="s">"""
+    solution is to loop over each digit's mapping letters and keep adding to a
+    string. To prevent having to write explicit for loops a recursive
+    approach is used.
+    Iterate over the first digit's mapping string, and call the recursive
+    function on the next digit's mapping string. Recursion will handle
+    further digits. We stop if a string with the same number of digits has been
+    produced and then continue on to the next iteration of the earliest loop.
+    """</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s">''</span><span class="p">,</span>
+        <span class="s">''</span><span class="p">,</span>
+        <span class="s">'abc'</span><span class="p">,</span>
+        <span class="s">'def'</span><span class="p">,</span>
+        <span class="s">'ghi'</span><span class="p">,</span>
+        <span class="s">'jkl'</span><span class="p">,</span>
+        <span class="s">'mno'</span><span class="p">,</span>
+        <span class="s">'pqrs'</span><span class="p">,</span>
+        <span class="s">'tuv'</span><span class="p">,</span>
+        <span class="s">'wxyz'</span>
+    <span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="n">get_letter_combinations</span><span class="p">(</span><span class="n">digits</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">current</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">get_letter_combinations</span><span class="p">(</span><span class="n">digits</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">current</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">digits</span><span class="p">):</span> <span class="c"># current string has all possible characters for the given digits combinations</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">digits</span><span class="p">[</span><span class="n">index</span><span class="p">])]:</span>
+        <span class="n">get_letter_combinations</span><span class="p">(</span><span class="n">digits</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">current</span> <span class="o">+</span> <span class="n">c</span><span class="p">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</code></pre><h2 id='pascal-39-s-triangle'>Pascal&#39;s Triangle</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+Given a non-negative number numRows, generate first numRows of Pascal's triangle
+eg -
+Input: 5
+Output:
+[
+     [1],
+    [1,1],
+   [1,2,1],
+  [1,3,3,1],
+ [1,4,6,4,1]
+]
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numRows</span><span class="p">):</span>
+        <span class="s">"""
+        :type numRows: int
+        :rtype: List[List[int]]
+        """</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numRows</span><span class="p">):</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span>
+            <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">output</span>
+</code></pre><h2 id='search-rotated-array'>Search Rotated Array</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+Given a sorted array of unique integers, rotated at a random index, search for
+a target and return its index.
+
+Approach - use a modified form of Binary search without having to sort the array
+if the middle element is less than last element then right half of array is
+sorted and rotation must have occurred in the left half. Similarily if first
+element is greater than middle element then right half of array is
+sorted and rotation must have occurred in the left half. Using this knowledge,
+if target is less than middle element, but last element is less than middle
+element and greater than target, it means the rotation occured between mid and
+last and the target lies in the right half (if it exists in the array).
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="s">"""
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">:</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="n">mid</span>
+            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">target</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">]:</span>
+                    <span class="n">end</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">target</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">end</span><span class="p">]:</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">end</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</code></pre><h2 id='search-rotated-array-2'>Search Rotated array 2</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+search target in sorted and rotated array which may contain duplicates.
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="s">"""
+        :type nums: List[int]
+        :type target: int
+        :rtype: bool
+        """</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">end</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">:</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">start</span><span class="p">]:</span> <span class="c"># right half of nums is sorted</span>
+                <span class="k">if</span> <span class="n">target</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="ow">and</span> <span class="n">target</span> <span class="o">&gt;=</span> <span class="n">nums</span><span class="p">[</span><span class="n">start</span><span class="p">]:</span> <span class="c"># target in left half of nums</span>
+                    <span class="n">end</span> <span class="o">=</span> <span class="n">mid</span>
+                <span class="k">else</span><span class="p">:</span> <span class="c"># target in right half of nums</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">start</span><span class="p">]:</span> <span class="c"># right half of nums is sorted</span>
+                <span class="k">if</span> <span class="n">target</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="ow">and</span> <span class="n">target</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="p">[</span><span class="n">end</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span> <span class="c"># target in right half of nums</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span> <span class="c"># target in left half of nums</span>
+                    <span class="n">end</span> <span class="o">=</span> <span class="n">mid</span>
+            <span class="k">else</span><span class="p">:</span> <span class="c"># nums[start] equals nums[mid]</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">False</span>
+</code></pre><h2 id='valid-permutations-for-parenthesis-pairs'>Valid Permutations for parenthesis pairs</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+For n pairs of parenthesis (eg - input of 3 implies 3 '(' and 3 ')') print
+all strings that represent valid permutations of the parenthesis.
+Approach - Use recursion, every '(' or ')' may be considered or not considered
+for a permutation. Keep track of remaining left and right parenthesis. As soon
+as remaining '(' becomes greater than remaining ')' then we no longer have a
+valid string so return and continue with next invokation of the recursion.
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">printPerms</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">left_remaining</span><span class="p">,</span> <span class="n">right_remaining</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">left_remaining</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">right_remaining</span> <span class="o">&lt;</span> <span class="n">left_remaining</span><span class="p">:</span>
+      <span class="k">return</span>
+    <span class="k">if</span> <span class="n">left_remaining</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">right_remaining</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span> <span class="c"># in case str is []</span>
+        <span class="nb">str</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s">'('</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="nb">str</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="s">'('</span>
+      <span class="n">printPerms</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">left_remaining</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">right_remaining</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+        <span class="nb">str</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s">')'</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="nb">str</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="s">')'</span>
+      <span class="n">printPerms</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">left_remaining</span><span class="p">,</span> <span class="n">right_remaining</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+</code></pre><h2 id='pairs-from-2-arrays-that-add-up-to-a-number-closest-to-target'>Pairs from 2 arrays that add up to a number closest to target</h2>
+<div class="center-column"></div>
+<pre class="highlight py tab-python"><code><span class="s">"""
+Given 2 lists find pair(s) of numbers from list1 and list2 which add up closest
+to a target t.
+For eg. l1 = [1,4,7,3] l2 = [2,0,4,8] and t = 11 should return the pairs (7,4),
+(3,8) and (4,8) because their sums are 11 or closest to 11.
+
+Approach -
+to solve this problem consider a matrix of all elements from both lists in
+sorted order.
+Start with the last element on 1st row, this is the sum of l1[0] and l2[len(l2)-1]
+if this sum is less than t - 1 then all elements to the left of this cell are
+less than t - 1 and do not need to be processed. move to the cell below this by incrementing
+i by 1 but keeping j the same. If the sum is greater than t + 1 then all cells below this
+are greater than t + 1 and need not be processed. Move to the left of this cell by
+decrementing j by 1 and keeping i the same. If the sum is t or t - 1, note down the pairs
+and the sum and move to the left of cell as above, if the sum is t + 1, note down the pairs
+and move to cell below this one.
+You should have a list of all pairs that add up to t - 1, t or t + 1. Any of these can be the
+answer.
+
+Run following to test -
+l1, l2 = [1,4,7,3], [2,0,4,8]
+t = 11
+
+s = Solution()
+s.sum_pair(sorted(l1), sorted(l2), t)
+print(repr(s.sum_pair_dict)) # {11: [(3, 8), (7, 4)], 12: [(4, 8)]}
+"""</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+  <span class="n">sum_pair_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+  <span class="k">def</span> <span class="nf">sum_pair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+      <span class="nb">sum</span> <span class="o">=</span> <span class="n">l1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">l2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+      <span class="k">if</span> <span class="nb">sum</span> <span class="o">&gt;</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">continue</span>
+      <span class="k">if</span> <span class="nb">sum</span> <span class="o">&lt;</span> <span class="n">t</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">continue</span>
+      <span class="k">if</span> <span class="nb">sum</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sum_pair_dict</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sum_pair_dict</span><span class="p">[</span><span class="nb">sum</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="n">l1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">l2</span><span class="p">[</span><span class="n">j</span><span class="p">])]</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sum_pair_dict</span><span class="p">[</span><span class="nb">sum</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">l1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">l2</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
+      <span class="k">if</span> <span class="nb">sum</span> <span class="o">&lt;=</span> <span class="n">t</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
+</code></pre><h1 id='aws-technical-architecture'>AWS Technical Architecture</h1><h2 id='overview'>Overview</h2>
+<p>The previous sections described the architecture used for Milestone processing based on the on-prem deployment of Cloudera&#39;s CDH5 Hadoop stack within Cerner Ingestion platforms production clusters. The following section shall include the proposed architecture for the entire Process Analyzer processing on Amazon&#39;s <a href="https://aws.amazon.com/">Amazon AWS</a> cloud. This architecture shall use the AWS services and designs that would eventually be fine tuned for scalability, performance and cost optimization above all. In case of any recommendations for improvement based on the material published on this site, feel free to reach out to the Greenhouse - Platforms &amp; Scalability - Process Analyzer team.</p>
+
+<p>As part of the following AWS based architecture or the system design for Process Analyzer, an attempt has been made to encompass the following high level system requirements:</p>
+
+<ul>
+<li><a href="#millennium-data-extraction">Incremental Millennium Data load capability</a></li>
+<li><a href="#milestone-data-generation">Milestone dataset generation</a></li>
+<li><a href="#occurence-data-generation">Occurence dataset generation</a></li>
+<li><a href="#compliance-data-generation">Compliance dataset generation</a></li>
+<li><a href="#cross-client-analytics">Cross-client analytics on all generated data</a></li>
+<li><a href="#client-facing-non-millennium">Client facing Non-Millennium public Process Analyzer analysis</a></li>
+<li><a href="#client-vertica-edws">Loading curated data into Client Vertica EDWs for client and analyst consumption</a></li>
+</ul>
+<h2 id='millennium-data-extraction'>Millennium data extraction</h2><h2 id='milestone-data-generation'>Milestone data generation</h2><h2 id='occurence-data-generation'>Occurence data generation</h2><h2 id='compliance-data-generation'>Compliance data generation</h2><h2 id='cross-client-analytics'>Cross-client analytics</h2><h2 id='client-facing-non-millennium'>Client facing Non-Millennium</h2><h2 id='client-vertica-edws'>Client Vertica EDWs</h2><h1 id='technology-stack'>Technology stack</h1>
+<ul>
+<li><a href="https://aws.amazon.com/">Amazon AWS</a></li>
+<li><a href="https://hadoop.apache.org/">Apache Hadoop</a> <a href="https://www.cloudera.com/documentation/enterprise/release-notes/topics/cdh_vd_cdh_package_tarball_514.html#cm_vd_cdh_package_tarball_514">(CDH5.14)</a></li>
+<li><a href="https://spark.apache.org/">Apache Spark</a></li>
+<li><a href="https://oozie.apache.org/">Apache Oozie</a></li>
+<li><a href="https://hive.apache.org/">Apache Hive</a></li>
+<li><a href="https://avro.apache.org/">Apache Avro</a></li>
+<li><a href="https://parquet.apache.org/">Apache Parquet</a></li>
+<li><a href="http://kitesdk.org/docs/current/">Apache Kite</a></li>
+<li><a href="https://zookeeper.apache.org/">Apache Zookeeper</a></li>
+<li><a href="https://learn.chef.io/">Chef</a></li>
+<li><a href="https://maven.apache.org/">Apache Maven</a></li>
+<li><a href="https://www.vertica.com/vertica-by-the-hour/?ads_adid=58943524072&amp;ads_cmpid=1536376758&amp;ads_creative=381179100620&amp;ads_matchtype=e&amp;ads_network=g&amp;ads_targetid=kwd-329697672861&amp;ttv=2&amp;utm_campaign=VBTH_E3&amp;utm_medium=paidsearch&amp;utm_source=google&amp;utm_term=vertica&amp;device=c&amp;gclid=EAIaIQobChMIsqSwmOTR5AIVAdvACh3lnAb6EAAYASAAEgJ5SfD_BwE">HP Vertica</a></li>
+<li>Java 8 <em>(For Map-reduce ETLs)</em></li>
+<li>Ruby <em>(For Chef automation)</em></li>
+<li>Node.js <em>(For Web-apps)</em></li>
+<li>Shell <em>(For scripting)</em></li>
+<li>Python <em>(For <a href="https://advance.cerner.com/">Cerner Advance</a> &amp; <a href="https://spark.apache.org/">Apache Spark</a> ETLs within <a href="https://aws.amazon.com/glue/">AWS Glue</a>)</em></li>
+<li>Electric Commander</li>
+<li>Jenkins</li>
+</ul>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+
+    <!-- 2019 Roadmap JS code -->
+    <script>
+      google.charts.load('current', {'packages':['gantt']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      const daysToMilliseconds = days => {
+        return days * 24 * 60 * 60 * 1000;
+      }
+
+      function drawChart() {
+
+        const setup2018RoadMap = () => {
+            const data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Task ID'         );
+            data.addColumn('string', 'Task Name'       );
+            data.addColumn('date'  , 'Start Date'      );
+            data.addColumn('date'  , 'End Date'        );
+            data.addColumn('number', 'Duration'        );
+            data.addColumn('number', 'Percent Complete');
+            data.addColumn('string', 'Dependencies'    );
+
+            data.addRows([
+                ['1', '[Initial POC] Millennium Map-reduce ETL', new Date(2018, 9, 1), new Date(2018, 9, 21), null,  100,  null]
+                // ['2', '[Initial POC] Occurrence Map-reduce ETL POC', new Date(2018, 11, 25), new Date(2018, 11, 31), null,  100,  null]
+            ]);
+
+            const options = { height: 120 };
+            const chart   = new google.visualization.Gantt(document.getElementById('2018_roadmap'));
+
+            chart.draw(data, options);
+        };
+
+        const setup2019RoadMap = () => {
+            const data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Task ID'         );
+            data.addColumn('string', 'Task Name'       );
+            data.addColumn('string', 'Resource'        );
+            data.addColumn('date'  , 'Start Date'      );
+            data.addColumn('date'  , 'End Date'        );
+            data.addColumn('number', 'Duration'        );
+            data.addColumn('number', 'Percent Complete');
+            data.addColumn('string', 'Dependencies'    );
+
+            data.addRows([
+                ['rd1'     , 'Top 10 Processes Defined and Prioritized'    , null, new Date(2019, 0, 1) , new Date(2019, 3, 1), null,  100 ,  null],
+                ['rd2'     , 'Top 50 Milestones Defined and Prioritized'    , null, new Date(2019, 0, 1) , new Date(2019, 3, 1), null,  100 ,  null],
+                ['rd3'     , '38 Milestone SQL Definitions Developed'    , null, new Date(2019, 0, 1) , new Date(2019, 3, 1), null,  100 ,  null],
+                ['rd4'     , '1 Client 1 Milestone data in HealtheIntent'    , null, new Date(2019, 0, 1) , new Date(2019, 3, 1), null,  100 ,  null],
+
+                ['rd5'     , 'Milestone SQL to Hive Conversion Automation'    , null, new Date(2019, 3, 1) , new Date(2019, 6, 1), null,  100 ,  null],
+                ['rd6'     , '9 more Milestone SQL Definitions Developed'    , null, new Date(2019, 3, 1) , new Date(2019, 6, 1), null,  100 ,  null],
+
+
+                ['rd7'     , '3 more Milestones created (50 total)'    , null, new Date(2019, 6, 1) , new Date(2019, 9, 1), null,  100 ,  null],
+                ['rd8'     , '1 Client 1 Milestone data in HealtheIntent'    , null, new Date(2019, 6, 1) , new Date(2019, 9, 1), null,  100 ,  null],
+
+                ['rd9'     , 'AHS_FL Milestones sent to HealtheAnalytics'    , null, new Date(2019, 9, 1) , new Date(2019, 11, 31), null,  30 ,  null],
+                ['rd10'     , 'Milestone data into Vertica via HIDUU'    , null, new Date(2019, 9, 1) , new Date(2019, 11, 31), null,  0 ,  null],
+                ['rd11'     , 'Develop 10 new Milestones'    , null, new Date(2019, 9, 1) , new Date(2019, 11, 31), null,  40 ,  null],
+                ['rd12'     , 'SQL to Hive converter updates based on Q3 tests'    , null, new Date(2019, 9, 1) , new Date(2019, 11, 31), null,  0 ,  null],
+                ['rd13'     , 'Milestones KT to Greenhouse Transformation'    , null, new Date(2019, 9, 1) , new Date(2019, 11, 31), null,  10 ,  null],
+
+                ['occ_etl_poc'     , 'Occurence Map-reduce ETL minimal POC'    , null, new Date(2019, 0, 1) , new Date(2019, 3, 1), null,  70 ,  null],
+                ['milo_tech_design', 'Milestone Automation Tech design', null, new Date(2019, 0, 1) , new Date(2019, 3, 1) , null,  100,  null],
+                ['milo-auto'       , 'Milestone Automation Prep Code'  , null, new Date(2019, 0, 1) , new Date(2019, 3, 1) , null,  100,  null],
+                ['fluzie'          , 'Fluent Oozie API'                , null, new Date(2019, 3, 18) , new Date(2019, 5, 1) , null,  100,  null],
+                ['docker'          , 'Docker Hadoop/Vertica Dev. Env.' , null, new Date(2019, 5, 1), new Date(2019, 5, 13), null,  100,  null],
+                ['vert1'           , 'Vertica Load Map-Reduce ETL'     , null, new Date(2019, 5, 15), new Date(2019, 6, 15), null,  100,  'docker'],
+                ['trk_api'         , 'Map-Reduce JobTracker API'       , null, new Date(2019, 5, 15), new Date(2019, 6, 10), null,  100,  'docker'],
+                ['oozie'           , 'Oozie and Avro configuration'    , null, new Date(2019, 6, 15), new Date(2019, 6, 30), null,  100,  'docker'],
+                ['coord'           , 'Oozie Coordinators created'    , null, new Date(2019, 5, 15), new Date(2019, 6, 3), null,  100,  'docker, fluzie'],
+                ['milo_etl'        , 'Milestone Oozie automation'      , null, new Date(2019, 3, 1), new Date(2019, 8, 15), null,  100,  null],
+                ['os_hive'         , 'IHC_UT OrderSign Hive query testing' , null, new Date(2019, 7, 1), new Date(2019, 7, 30), null,  100,  'milo_etl'],
+                ['prod'            , 'IHC_UT OrderSign Milestone data generated', null, new Date(2019, 8, 1), new Date(2019, 8, 30), null,  100,  'os_hive'],
+                ['etoile_vert'     , 'Etoile Vertica Load ETL', null, new Date(2019, 8, 25), new Date(2019, 9, 15), null,  100,  'docker'],
+                ['vert'            , 'HealtheAnalytics Vertica Load Strategy Sync', null, new Date(2019, 8, 16), new Date(2019, 11, 31), null,  60,  'vert1'],
+                ['aws_design'      , 'PA AWS Technical Architecture Design', null, new Date(2019, 9, 25), new Date(2019, 10, 14), null,  85,  null],
+                ['hiduu'           , 'HIDUU + Public EDW API Strategy', null, new Date(2019, 9, 1) , new Date(2019, 11, 31), null,  60,  null],
+                ['aws_tenant'      , 'PA AWS tenant setup', null, new Date(2019, 10, 15), new Date(2019, 11, 15), null,  10,  'aws_design'],
+                ['s3_lts_access'   , 'AWS Millennium data access (LTS)', null, new Date(2019, 11, 8), new Date(2019, 11, 30), null,  0,  'aws_tenant'],
+                ['s3_read'   , 'S3 Millennium Storage reader API prep', null, new Date(2019, 11, 8), new Date(2019, 11, 30), null,  0,  null],
+            ]);
+
+            const options = {
+                height: 1400,
+                gantt: {
+                    criticalPathEnabled: true,
+                    criticalPathStyle: {
+                        stroke     : '#e64a19',
+                        strokeWidth: 5
+                    }
+                }
+            };
+
+            const chart   = new google.visualization.Gantt(document.getElementById('2019_roadmap'));
+
+            google.visualization.events.addListener(chart, 'ready', e => {
+                const allDates = $($('#2019_roadmap').find('g')[1]).find('text');
+
+                allDates.each(function( index ) {
+                    const dateText = $(this).text();
+                    console.log(dateText);
+
+                    switch (dateText) {
+                        case 'Jan' : { this.innerHTML = 'Q1'; break; }
+                        case 'Apr' : { this.innerHTML = 'Q2'; break; }
+                        case 'Jul' : { this.innerHTML = 'Q3'; break; }
+                        case 'Oct' : { this.innerHTML = 'Q4'; break; }
+                        case ' 2019': { break; }
+
+                        default : this.innerHTML = '';
+                    }
+                });
+            });
+
+            chart.draw(data, options);
+        };
+
+        const setup2020RoadMap = () => {
+            const data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Task ID'         );
+            data.addColumn('string', 'Task Name'       );
+            data.addColumn('date'  , 'Start Date'      );
+            data.addColumn('date'  , 'End Date'        );
+            data.addColumn('number', 'Duration'        );
+            data.addColumn('number', 'Percent Complete');
+            data.addColumn('string', 'Dependencies'    );
+
+            data.addRows([
+                ['1', '[AWS] Efficient Millennium data read strategies'  , new Date(2020, 0, 1) , new Date(2020, 3, 1) , null,  0,  null],
+                ['2', '[AWS] Millennium data Map-reduce ETL'             , new Date(2020, 0, 1) , new Date(2020, 3, 1), null,  0,  null],
+                ['3', '[AWS] EMR cluster setup & cost optimization'      , new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['4', '[AWS] S3 tech design for read cost optimization'  , new Date(2020, 0, 1) , new Date(2020, 3, 1), null,  0,  null],
+                ['5', '[AWS] Millennium data extraction automation'      , new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['6', '[AWS] Milestone data generation automation'       , new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['7', '[AWS] Milestone infrastructure automation'        , new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['8', '[AWS] Single client Milestones processed'         , new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['9', '[AWS] Multiple clients Milestones data processed' , new Date(2020, 6, 1) , new Date(2020, 9, 1), null,  0,  null],
+                ['10', '[AWS] Process occurrence ETL development'        , new Date(2020, 6, 1) , new Date(2020, 11, 31), null,  0,  null],
+                ['11', '[AWS] Milestone jobs monitoring dashboard app'   , new Date(2020, 6, 1) , new Date(2020, 9, 1), null,  0,  null],
+                ['12', '[AWS] Occurrence data generated/single client'   , new Date(2020, 9, 1) , new Date(2020, 11, 31), null,  0,  null],
+                ['13', '[AWS] Occurrence data generated/multiple clients', new Date(2020, 9, 1) , new Date(2020, 11, 31), null,  0,  null],
+                ['14', '[AWS] Occurrence infrastructure automation'      , new Date(2020, 9, 1) , new Date(2020, 11, 31), null,  0,  null],
+                ['15', '[AWS] Occurrence jobs monitoring dashboard app'  , new Date(2020, 9, 1) , new Date(2020, 11, 31), null,  0,  null],
+                ['17', '[AWS] Milestone data into HealtheAnalytics'      , new Date(2020, 6, 1) , new Date(2020, 9, 1), null,  0,  null],
+                ['18', '[AWS] Occurrence data into HealtheAnalytics'     , new Date(2020, 9, 1) , new Date(2020, 11, 31), null,  0,  null],
+                ['20', '[AWS] Millennium reference data strategy'        , new Date(2020, 0, 1) , new Date(2020, 3, 1), null,  0,  null],
+                ['21', '[AWS] Millennium LTS data read cost estimate'    , new Date(2020, 0, 1) , new Date(2020, 3, 1), null,  0,  null],
+                ['22', '[AWS] Millennium creation cost estimate'         , new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['23', '[AWS] Occurrence data creation cost estimate'    , new Date(2020, 9, 1) , new Date(2020, 11, 31), null,  0,  null],
+                ['24', '10 new Milestone definitions developed'          , new Date(2020, 0, 1) , new Date(2020, 3, 1) , null,  0,  null],
+                ['25', 'Finish On-prem Milestone automation - 2 clients' , new Date(2020, 0, 1) , new Date(2020, 3, 1) , null,  0,  null],
+                ['26', '10 new Milestone definitions created'            , new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['27', '[Spike] Augmented analytics for Process Analyzer', new Date(2020, 3, 1) , new Date(2020, 6, 1), null,  0,  null],
+                ['28', '25 new Milestone definitions developed'          , new Date(2020, 6, 1) , new Date(2020, 9, 1), null,  0,  null],
+                ['29', '25 new Milestone definitions developed'          , new Date(2020, 9, 1) , new Date(2020, 11, 31), null,  0,  null],
+
+            ]);
+
+            const options = {
+                height: 1185,
+                labelMaxWidth : 600,
+                gantt: {
+                    criticalPathEnabled: true,
+                    criticalPathStyle: {
+                        stroke     : '#e64a19',
+                        strokeWidth: 5
+                    }
+                }
+            };
+
+            const chart   = new google.visualization.Gantt(document.getElementById('2020_roadmap'));
+
+            google.visualization.events.addListener(chart, 'ready', e => {
+                const allDates = $($('#2020_roadmap').find('g')[1]).find('text');
+
+                allDates.each(function( index ) {
+                    const dateText = $(this).text();
+                    console.log(dateText);
+
+                    switch (dateText) {
+                        case 'Jan' : { this.innerHTML = 'Q1'; break; }
+                        case 'Apr' : { this.innerHTML = 'Q2'; break; }
+                        case 'Jul' : { this.innerHTML = 'Q3'; break; }
+                        case 'Oct' : { this.innerHTML = 'Q4'; break; }
+                        case ' 2020': { break; }
+
+                        default : this.innerHTML = '';
+                    }
+                });
+            });
+
+            chart.draw(data, options);
+        };
+
+        const setup2021RoadMap = () => {
+            const data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Task ID'         );
+            data.addColumn('string', 'Task Name'       );
+            data.addColumn('date'  , 'Start Date'      );
+            data.addColumn('date'  , 'End Date'        );
+            data.addColumn('number', 'Duration'        );
+            data.addColumn('number', 'Percent Complete');
+            data.addColumn('string', 'Dependencies'    );
+
+            data.addRows([
+                ['1', '[AWS] Client facing PA web-app', new Date(2021, 3, 1), new Date(2021, 9, 1) , null,  0,  null],
+                ['2', '[AWS] Client facing Non-Millennium PA app', new Date(2021, 6, 1) , new Date(2021, 11, 31) , null,  0,  null],
+                ['3', '[AWS] Near real-time capabilities', new Date(2021, 6, 1) , new Date(2021, 11, 31) , null,  0,  null],
+                ['4', '[AWS] Cross-client Analytics Map-reduce ETLs', new Date(2021, 3, 1) , new Date(2021, 9, 1) , null,  0,  null],
+                ['5', '[AWS] Occurrence definition manager web-app', new Date(2021, 0, 1) , new Date(2021, 3, 1) , null,  0,  null],
+                ['6', '[AWS] Compliance analytics development', new Date(2021, 9, 1) , new Date(2021, 11, 31), null,  0,  null],
+                ['7', '[AWS] BI/Analytics Ecosystem creation'          , new Date(2021, 9, 1) , new Date(2021, 11, 31), null,  0,  null],
+                ['8', '[AWS] Machine Learning Ecosystem creation'      , new Date(2021, 9, 1) , new Date(2021, 11, 31), null,  0,  null],
+            ]);
+
+            const options = {
+                height: 385,
+                gantt: {
+                    criticalPathEnabled: true,
+                    criticalPathStyle: {
+                        stroke     : '#e64a19',
+                        strokeWidth: 5
+                    }
+                }
+            };
+
+            const chart = new google.visualization.Gantt(document.getElementById('2021_roadmap'));
+
+            google.visualization.events.addListener(chart, 'ready', e => {
+                const allDates = $($('#2021_roadmap').find('g')[1]).find('text');
+
+                allDates.each(function( index ) {
+                    const dateText = $(this).text();
+                    console.log(dateText);
+
+                    switch (dateText) {
+                        case 'Jan'  : { this.innerHTML = 'Future development'; break; }
+                        case ' 2021': { break; }
+
+                        default : this.innerHTML = '';
+                    }
+                });
+            });
+
+            chart.draw(data, options);
+        };
+
+        // setup2018RoadMap();
+        setup2019RoadMap();
+        setup2020RoadMap();
+        setup2021RoadMap();
+      }
+    </script>
+
+  </body>
+</html>
